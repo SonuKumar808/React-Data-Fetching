@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import UserData from "./components/UserData";
+import Todos from "./components/Todos";
+
 
 const API = "https://jsonplaceholder.typicode.com/users";
 
@@ -7,6 +9,12 @@ const API = "https://jsonplaceholder.typicode.com/users";
 const App = () => {
 
     const [users, setUsers] = useState([]);
+    const [currentPage, setCurrentPage] = useState("users");
+
+    const handleNavigation = (page) => {
+        setCurrentPage(page);
+    };
+
 
     const fetchUser = async (url) => {
         try {
@@ -15,32 +23,27 @@ const App = () => {
             if (data.length > 0) {
                 setUsers(data);
             }
-
-            console.log(data);
         } catch (e) {
             console.error(e);
         }
-    }
+    };
 
     useEffect(() => {
         fetchUser(API);
-    }, [])
+    }, []);
     return (
-        <table>
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>City</th>
-                </tr>
-            </thead>
-
-            <tbody>
+        <div>
+            <nav className="navigation">
+                <button onClick={() => handleNavigation("users")}>Users</button>
+                <button onClick={() => handleNavigation("todos")}>Todos</button>
+            </nav>
+            {currentPage === "users" ? (
                 <UserData users={users} />
-            </tbody>
-        </table>
-    )
-}
+            ) : (
+                <Todos />
+            )}
+        </div>
+    );
+};
 
 export default App;

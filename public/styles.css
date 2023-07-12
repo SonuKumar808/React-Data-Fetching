@@ -37,8 +37,8 @@ li, p, a, td {
 
 thead {
     font-size: 1.8rem;
-    background-color: #E9C4C4;
-    color: #081233;
+    background-color: #EEC8C8;
+    color: #000000;
 }
 
 th, td {
@@ -51,4 +51,27 @@ th, td {
 td {
     font-size: 1.4rem;
     text-align: center;
+}
+
+/* navigation styles */
+.navigation {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.navigation button {
+    margin: 0 10px;
+    padding: 10px 20px;
+    font-size: 1.6rem;
+    background-color: #EEC8C8;
+    color: #000000;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.navigation button:hover {
+    background-color: #e04848;
+    color: #000000;
 }

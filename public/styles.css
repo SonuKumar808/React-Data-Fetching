@@ -1,25 +1,30 @@
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu&display=swap');
+/* main.css */
+
+/* Global styles */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Ubuntu', sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 html {
-    font-size: 50%;
+    font-size: 62.5%;
+    /* 1rem = 10px */
 }
 
 h1 {
     box-sizing: border-box;
     text-align: center;
-    font-size: 3rem;
-    margin: 20px 30px;
-    padding: 10px;
+    font-size: 3.5rem;
+    margin: 2rem 0;
+    padding: 0;
     color: #060E27;
 }
 
+/* Table styles */
 table {
     margin: 5rem auto;
     border-radius: 2rem;
@@ -30,7 +35,17 @@ table {
     max-width: 80rem;
 }
 
-li, p, a, td {
+p {
+    text-align: center;
+    font-size: 1.8rem;
+    line-height: 2.2rem;
+    margin: 1rem 0;
+    color: #333;
+}
+
+li,
+a,
+td {
     font-size: 1.6rem;
     line-height: 1.6;
 }
@@ -41,7 +56,8 @@ thead {
     color: #000000;
 }
 
-th, td {
+th,
+td {
     border: 1px solid #443c68;
     min-width: 30rem;
     padding: 1.5rem;
@@ -53,25 +69,71 @@ td {
     text-align: center;
 }
 
-/* navigation styles */
-.navigation {
+/* Navbar styles */
+.nav {
     display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #060E27;
+    padding: 1rem;
 }
 
-.navigation button {
-    margin: 0 10px;
-    padding: 10px 20px;
-    font-size: 1.6rem;
-    background-color: #EEC8C8;
-    color: #000000;
-    border: none;
+.title {
+    color: #EEC8C8;
+    font-size: 2rem;
+    text-decoration: none;
+}
+
+
+.highlight {
+    text-decoration: underline;
+    color: #060E27;
+    font-weight: 200;
+    padding: 0.1rem 0.2rem;
+    border-radius: 2px;
+}
+
+ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+ul li {
+    margin-left: 1rem;
+}
+
+ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
     border-radius: 4px;
-    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-.navigation button:hover {
-    background-color: #e04848;
-    color: #000000;
+ul li a:hover {
+    background-color: #EEC8C8;
+    color: #060E27;
+}
+
+ul.left-align {
+    margin-left: 0;
+}
+
+/* styles for mobile */
+@media (max-width: 768px) {
+    .nav {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    ul {
+        margin-top: 1rem;
+    }
+
+    ul li {
+        margin-left: 0;
+        margin-bottom: 0.5rem;
+    }
 }

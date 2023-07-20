@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-
 const Todos = () => {
-  // code to fetch and display todos data here
   const [todos, setTodos] = useState([]);
 
   useEffect(() => {
@@ -16,9 +14,13 @@ const Todos = () => {
       }
     };
 
+    // Fetch data only when the component is mounted
     fetchTodos();
-
   }, []);
+
+  // Get the first 5 todos from the array
+  const firstFiveTodos = todos.slice(0, 5);
+
   return (
     <div>
       <h2>Todos</h2>
@@ -30,9 +32,8 @@ const Todos = () => {
             <th>Completed</th>
           </tr>
         </thead>
-
         <tbody>
-          {todos.map((todo) => (
+          {firstFiveTodos.map((todo) => (
             <tr key={todo.id}>
               <td>{todo.id}</td>
               <td>{todo.title}</td>
